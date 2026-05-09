@@ -1231,6 +1231,8 @@
   "import_conflicts_filter_show_resolved_label": "Megoldottak megjelenítése",
   "import_convert_placeholders_to_icu_checkbox_label": "Helyőrzők konvertálása Tolgee Universal ICU-ra",
   "import_convert_placeholders_to_icu_checkbox_label_hint": "Amikor engedélyezve van, a helykitöltőket Tolgee ICU Universal formátumba konvertáljuk, ami a Tolgee saját formátuma. A Tolgee ICU Universal helykitöltőket különböző más formátumokba is exportálhatja. További információkért kattintson erre a súgó ikonra.",
+  "import_keep_original_placeholders_checkbox_label": "Keep original placeholders",
+  "import_keep_original_placeholders_checkbox_label_hint": "When enabled, placeholders are stored as-is without any escaping or conversion. This is useful when your file already contains the exact placeholder syntax you want to keep.",
   "import-data-imported-info": "Az adatok importálva lettek!",
   "import_delete_language_dialog_message": "Valóban eltávolítja a(z) {languageName} nyelvet az importáláshoz?",
   "import_delete_language_dialog_title": "Nyelv eltávolítása importáláshoz",

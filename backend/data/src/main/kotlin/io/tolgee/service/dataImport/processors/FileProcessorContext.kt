@@ -31,6 +31,7 @@ data class FileProcessorContext(
       override var overrideKeyDescriptions: Boolean = false
       override var createNewKeys: Boolean = true
       override var convertPlaceholdersToIcu: Boolean = true
+      override var keepOriginalPlaceholders: Boolean = true
     },
   val projectIcuPlaceholdersEnabled: Boolean = true,
   val applicationContext: ApplicationContext,

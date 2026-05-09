@@ -62,6 +62,7 @@ class FileProcessorContextMockUtil {
       override var overrideKeyDescriptions: Boolean = false
       override var convertPlaceholdersToIcu: Boolean = convertPlaceholders
       override var createNewKeys: Boolean = true
+      override var keepOriginalPlaceholders: Boolean = false
     }
 
   private fun mockApplicationContext(): ApplicationContext {

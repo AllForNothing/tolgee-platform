@@ -18,10 +18,16 @@ interface IImportSettings {
   )
   var convertPlaceholdersToIcu: Boolean
 
+  @get:Schema(
+    description = "If true, placeholders will be kept as-is without any escaping or conversion",
+  )
+  var keepOriginalPlaceholders: Boolean
+
   fun assignFrom(other: IImportSettings) {
     this.overrideKeyDescriptions = other.overrideKeyDescriptions
     this.convertPlaceholdersToIcu = other.convertPlaceholdersToIcu
     this.createNewKeys = other.createNewKeys
+    this.keepOriginalPlaceholders = other.keepOriginalPlaceholders
   }
 
   fun clone(): IImportSettings {
@@ -29,6 +35,7 @@ interface IImportSettings {
       override var overrideKeyDescriptions: Boolean = this@IImportSettings.overrideKeyDescriptions
       override var convertPlaceholdersToIcu: Boolean = this@IImportSettings.convertPlaceholdersToIcu
       override var createNewKeys: Boolean = this@IImportSettings.createNewKeys
+      override var keepOriginalPlaceholders: Boolean = this@IImportSettings.keepOriginalPlaceholders
     }
   }
 }

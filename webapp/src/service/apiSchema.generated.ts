@@ -3471,6 +3471,8 @@ export interface components {
       convertPlaceholdersToIcu: boolean;
       /** @description If false, only updates keys, skipping the creation of new keys */
       createNewKeys: boolean;
+      /** @description If true, placeholders will be kept as-is without any escaping or conversion */
+      keepOriginalPlaceholders: boolean;
       /** @description If true, key descriptions will be overridden by the import */
       overrideKeyDescriptions: boolean;
     };
@@ -3479,6 +3481,8 @@ export interface components {
       convertPlaceholdersToIcu: boolean;
       /** @description If false, only updates keys, skipping the creation of new keys */
       createNewKeys: boolean;
+      /** @description If true, placeholders will be kept as-is without any escaping or conversion */
+      keepOriginalPlaceholders: boolean;
       /** @description If true, key descriptions will be overridden by the import */
       overrideKeyDescriptions: boolean;
     };

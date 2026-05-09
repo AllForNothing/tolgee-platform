@@ -48,6 +48,7 @@ class SingleStepImportRequest :
 
   override var overrideKeyDescriptions: Boolean = false
   override var convertPlaceholdersToIcu: Boolean = true
+  override var keepOriginalPlaceholders: Boolean = true
 
   @get:Schema(
     description = "If false, only updates keys, skipping the creation of new keys",

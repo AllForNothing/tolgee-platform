@@ -8,8 +8,14 @@ import { LoadingCheckboxWithSkeleton } from 'tg.component/common/form/LoadingChe
 import { HelpCircle } from '@untitled-ui/icons-react';
 import { DOCS_LINKS } from '../../../../constants/docLinks';
 
-type ImportSettingRequest = components['schemas']['ImportSettingsRequest'];
-type ImportSettingModel = components['schemas']['ImportSettingsModel'];
+// Use explicit interface to include keepOriginalPlaceholders (schema may be cached by TS server)
+type ImportSettingRequest = {
+  convertPlaceholdersToIcu: boolean;
+  createNewKeys: boolean;
+  keepOriginalPlaceholders: boolean;
+  overrideKeyDescriptions: boolean;
+};
+type ImportSettingModel = ImportSettingRequest;
 
 const StyledPanelBox = styled(Box)`
   margin-top: 24px;
@@ -33,9 +39,7 @@ export const ImportSettingsPanel: FC = (props) => {
     undefined
   );
 
-  const [loadingItems, setLoadingItems] = useState<
-    Set<keyof ImportSettingRequest>
-  >(new Set());
+  const [loadingItems, setLoadingItems] = useState<Set<string>>(new Set());
 
   useApiQuery({
     url: '/v2/projects/{projectId}/import-settings',
@@ -43,7 +47,8 @@ export const ImportSettingsPanel: FC = (props) => {
     path: { projectId: project.id },
     options: {
       onSuccess: (data) => {
-        setState(data);
+        // Cast needed because TS server may have stale cached schema type
+        setState(data as unknown as ImportSettingRequest);
       },
     },
   });
@@ -62,7 +67,7 @@ export const ImportSettingsPanel: FC = (props) => {
       return;
     }
     const onSuccess = (data: ImportSettingModel) => {
-      setState(data);
+      setState(data as unknown as ImportSettingRequest);
     };
 
     const onSettled = () => {
@@ -73,7 +78,8 @@ export const ImportSettingsPanel: FC = (props) => {
       });
     };
 
-    const newValue = { ...state, [item]: value };
+    const newValue: ImportSettingRequest = { ...state, [item]: value };
+
     setLoadingItems((loadingItems) => {
       const copy = new Set([...loadingItems]);
       copy.add(item);
@@ -92,22 +98,85 @@ export const ImportSettingsPanel: FC = (props) => {
     return;
   }
 
+  function onKeepOriginalChange(checked: boolean) {
+    if (state == undefined) return;
+    const newValue: ImportSettingRequest = {
+      ...state,
+      keepOriginalPlaceholders: checked,
+      // Mutually exclusive: turning on keepOriginal turns off convertPlaceholders
+      ...(checked ? { convertPlaceholdersToIcu: false } : {}),
+    };
+    setLoadingItems((prev) => new Set([...prev, 'keepOriginalPlaceholders']));
+    updateSettings.mutate(
+      {
+        path: { projectId: project.id },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        content: { 'application/json': newValue as any },
+      },
+      {
+        onSuccess: (data) => setState(data as ImportSettingModel),
+        onSettled: () =>
+          setLoadingItems((prev) => {
+            const copy = new Set([...prev]);
+            copy.delete('keepOriginalPlaceholders');
+            return copy;
+          }),
+      }
+    );
+  }
+
+  function onConvertPlaceholdersChange(checked: boolean) {
+    if (state == undefined) return;
+    const newValue: ImportSettingRequest = {
+      ...state,
+      convertPlaceholdersToIcu: checked,
+      // Mutually exclusive: turning on convertPlaceholders turns off keepOriginal
+      ...(checked ? { keepOriginalPlaceholders: false } : {}),
+    };
+    setLoadingItems((prev) => new Set([...prev, 'convertPlaceholdersToIcu']));
+    updateSettings.mutate(
+      {
+        path: { projectId: project.id },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        content: { 'application/json': newValue as any },
+      },
+      {
+        onSuccess: (data) => setState(data as ImportSettingModel),
+        onSettled: () =>
+          setLoadingItems((prev) => {
+            const copy = new Set([...prev]);
+            copy.delete('convertPlaceholdersToIcu');
+            return copy;
+          }),
+      }
+    );
+  }
+
   return (
     <StyledPanelBox
       sx={(theme) => ({
         color: theme.palette.tokens.text.primary,
       })}
     >
+      <LoadingCheckboxWithSkeleton
+        loading={loadingItems.has('keepOriginalPlaceholders')}
+        onChange={(e) => onKeepOriginalChange(e.target.checked)}
+        data-cy={'import-keep-original-placeholders-checkbox'}
+        hint={t('import_keep_original_placeholders_checkbox_label_hint')}
+        label={t('import_keep_original_placeholders_checkbox_label')}
+        checked={state?.keepOriginalPlaceholders}
+        disabled={state?.convertPlaceholdersToIcu}
+        {...additionalCheckboxProps}
+      />
       {project.icuPlaceholders && (
         <LoadingCheckboxWithSkeleton
           loading={loadingItems.has('convertPlaceholdersToIcu')}
-          onChange={(e) => {
-            onChange('convertPlaceholdersToIcu', e.target.checked);
-          }}
+          onChange={(e) => onConvertPlaceholdersChange(e.target.checked)}
           data-cy={'import-convert-placeholders-to-icu-checkbox'}
           hint={t('import_convert_placeholders_to_icu_checkbox_label_hint')}
           label={t('import_convert_placeholders_to_icu_checkbox_label')}
           checked={state?.convertPlaceholdersToIcu}
+          disabled={state?.keepOriginalPlaceholders}
           {...additionalCheckboxProps}
           customHelpIcon={
             <StyledLink href={DOCS_LINKS.importingPlaceholders}>

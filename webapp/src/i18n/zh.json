@@ -1232,6 +1232,8 @@
   "import_conflicts_filter_show_resolved_label": "显示已解决词条",
   "import_convert_placeholders_to_icu_checkbox_label": "将占位符转换为 Tolgee 通用 ICU",
   "import_convert_placeholders_to_icu_checkbox_label_hint": "启用后，我们将把您的占位符转换为 Tolgee ICU 通用格式，这是 Tolgee 原生支持的格式。您可以将 Tolgee ICU 通用占位符导出为各种其他格式。单击此帮助图标以了解更多信息。",
+  "import_keep_original_placeholders_checkbox_label": "保持原样",
+  "import_keep_original_placeholders_checkbox_label_hint": "启用后，占位符将原样存储，不进行任何转义或转换。当您的文件已包含您想保留的确切占位符语法时，此选项非常有用。",
   "import-data-imported-info": "您的数据已导入！",
   "import_delete_language_dialog_message": "你真的要删除要导入的语言 {languageName} 吗？",
   "import_delete_language_dialog_title": "删除要导入的语言",

@@ -1237,6 +1237,8 @@
   "import_conflicts_filter_show_resolved_label": "Gelöste Konflikte anzeigen",
   "import_convert_placeholders_to_icu_checkbox_label": "Platzhalter in Tolgee Universal ICU konvertieren",
   "import_convert_placeholders_to_icu_checkbox_label_hint": "Wenn aktiviert, konvertieren wir Ihre Platzhalter in das Tolgee ICU Universal-Format, das für Tolgee nativ ist. Sie können Tolgee ICU Universal-Platzhalter in verschiedene andere Formate exportieren. Lesen Sie mehr, indem Sie auf dieses Hilfesymbol klicken.",
+  "import_keep_original_placeholders_checkbox_label": "Keep original placeholders",
+  "import_keep_original_placeholders_checkbox_label_hint": "When enabled, placeholders are stored as-is without any escaping or conversion. This is useful when your file already contains the exact placeholder syntax you want to keep.",
   "import-data-imported-info": "Ihre Daten wurden importiert!",
   "import_delete_language_dialog_message": "Wollen Sie die Sprache {languageName} wirklich nicht importieren?",
   "import_delete_language_dialog_title": "Sprache vom Import entfernen",

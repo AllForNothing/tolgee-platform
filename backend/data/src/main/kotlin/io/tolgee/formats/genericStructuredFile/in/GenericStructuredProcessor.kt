@@ -50,6 +50,7 @@ class GenericStructuredProcessor(
       rawData = data,
       projectIcuPlaceholdersEnabled = context.projectIcuPlaceholdersEnabled,
       convertPlaceholdersToIcu = context.importSettings.convertPlaceholdersToIcu,
+      keepOriginalPlaceholders = context.importSettings.keepOriginalPlaceholders,
     )
   }
 

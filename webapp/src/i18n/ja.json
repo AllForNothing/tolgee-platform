@@ -1240,6 +1240,8 @@
   "import_conflicts_filter_show_resolved_label": "解決済みを表示",
   "import_convert_placeholders_to_icu_checkbox_label": "プレースホルダーをTolgee Universal ICUに変換する",
   "import_convert_placeholders_to_icu_checkbox_label_hint": "有効にすると、プレースホルダーをTolgee固有のTolgee ICU Universal形式に変換します。Tolgee ICU Universalプレースホルダーを他のさまざまな形式にエクスポートできます。このヘルプアイコンをクリックして詳細をご覧ください。",
+  "import_keep_original_placeholders_checkbox_label": "Keep original placeholders",
+  "import_keep_original_placeholders_checkbox_label_hint": "When enabled, placeholders are stored as-is without any escaping or conversion. This is useful when your file already contains the exact placeholder syntax you want to keep.",
   "import-data-imported-info": "データのインポートが完了しました！",
   "import_delete_language_dialog_message": "インポートする言語 {languageName} を削除します。本当によろしいですか？",
   "import_delete_language_dialog_title": "インポートする言語を削除",

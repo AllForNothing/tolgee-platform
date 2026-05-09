@@ -1045,6 +1045,8 @@
   "import_conflicts_filter_show_resolved_label": "Показати вирішені",
   "import_convert_placeholders_to_icu_checkbox_label": "Перетворити заповнювачі на універсальні ICU Tolgee",
   "import_convert_placeholders_to_icu_checkbox_label_hint": "Якщо ввімкнено, ми конвертуємо ваші заповнювачі у формат Tolgee ICU Universal, рідний для Tolgee. Ви можете експортувати заповнювачі Tolgee ICU Universal у різні інші формати. Дізнайтеся більше, натиснувши на цю іконку допомоги.",
+  "import_keep_original_placeholders_checkbox_label": "Keep original placeholders",
+  "import_keep_original_placeholders_checkbox_label_hint": "When enabled, placeholders are stored as-is without any escaping or conversion. This is useful when your file already contains the exact placeholder syntax you want to keep.",
   "import-data-imported-info": "Ваші дані імпортовано!",
   "import_delete_language_dialog_message": "Ви дійсно хочете видалити мову {languageName} для імпорту?",
   "import_delete_language_dialog_title": "Видалити мову для імпорту",

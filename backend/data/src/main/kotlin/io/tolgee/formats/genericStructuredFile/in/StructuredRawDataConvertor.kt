@@ -7,5 +7,6 @@ interface StructuredRawDataConvertor {
     rawData: Any?,
     projectIcuPlaceholdersEnabled: Boolean,
     convertPlaceholdersToIcu: Boolean,
+    keepOriginalPlaceholders: Boolean = false,
   ): List<MessageConvertorResult>?
 }

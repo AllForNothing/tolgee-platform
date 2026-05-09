@@ -392,8 +392,10 @@ class ImportDataManager(
     oldSettings: IImportSettings,
     newSettings: IImportSettings,
   ) {
-    if (oldSettings.convertPlaceholdersToIcu != newSettings.convertPlaceholdersToIcu) {
-      applyConvertPlaceholdersChange(newSettings.convertPlaceholdersToIcu)
+    if (oldSettings.convertPlaceholdersToIcu != newSettings.convertPlaceholdersToIcu ||
+      oldSettings.keepOriginalPlaceholders != newSettings.keepOriginalPlaceholders
+    ) {
+      applyConvertPlaceholdersChange(newSettings.convertPlaceholdersToIcu, newSettings.keepOriginalPlaceholders)
     }
 
     if (oldSettings.createNewKeys != newSettings.createNewKeys) {
@@ -414,7 +416,10 @@ class ImportDataManager(
     }
   }
 
-  private fun applyConvertPlaceholdersChange(convertPlaceholdersToIcu: Boolean) {
+  private fun applyConvertPlaceholdersChange(
+    convertPlaceholdersToIcu: Boolean,
+    keepOriginalPlaceholders: Boolean = false,
+  ) {
     this.populateStoredTranslationsToConvertPlaceholders()
     val toSave = mutableListOf<ImportTranslation>()
     storedTranslations.forEach { (language, keyTranslationsMap) ->
@@ -430,8 +435,14 @@ class ImportDataManager(
                 convertPlaceholders = convertPlaceholdersToIcu,
                 isProjectIcuEnabled = import.project.icuPlaceholders,
               )
-            it.isPlural = converted.pluralArgName != null
-            it.text = converted.message
+            // If keepOriginalPlaceholders, store raw data as-is
+            if (keepOriginalPlaceholders && it.rawData is String) {
+              it.text = it.rawData as String
+              it.isPlural = false
+            } else {
+              it.isPlural = converted.pluralArgName != null
+              it.text = converted.message
+            }
             val new = it.text to it.isPlural
             if (prev != new) {
               toSave.add(it)

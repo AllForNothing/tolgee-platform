@@ -5348,4 +5348,11 @@
             </column>
         </addColumn>
     </changeSet>
+    <changeSet author="custom" id="1746700000000-1">
+        <addColumn tableName="import_settings">
+            <column name="keep_original_placeholders" type="BOOLEAN" defaultValueBoolean="true">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

@@ -1231,6 +1231,8 @@
   "import_conflicts_filter_show_resolved_label": "Mostrar resueltos",
   "import_convert_placeholders_to_icu_checkbox_label": "Convertir marcadores de posición a Tolgee Universal ICU",
   "import_convert_placeholders_to_icu_checkbox_label_hint": "Cuando está habilitado, convertimos tus marcadores de posición al formato universal Tolgee ICU nativo de Tolgee. Puedes exportar marcadores de posición universales Tolgee ICU a varios otros formatos. Lee más haciendo clic en este icono de ayuda.",
+  "import_keep_original_placeholders_checkbox_label": "Keep original placeholders",
+  "import_keep_original_placeholders_checkbox_label_hint": "When enabled, placeholders are stored as-is without any escaping or conversion. This is useful when your file already contains the exact placeholder syntax you want to keep.",
   "import-data-imported-info": "¡Sus datos han sido importados!",
   "import_delete_language_dialog_message": "¿Realmente quieres eliminar el idioma {languageName} para la importación?",
   "import_delete_language_dialog_title": "Eliminar el idioma para la importación",

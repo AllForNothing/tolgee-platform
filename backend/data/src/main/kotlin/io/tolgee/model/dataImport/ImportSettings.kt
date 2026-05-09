@@ -38,4 +38,7 @@ class ImportSettings(
 
   @ColumnDefault("true")
   override var createNewKeys: Boolean = true
+
+  @ColumnDefault("true")
+  override var keepOriginalPlaceholders: Boolean = true
 }

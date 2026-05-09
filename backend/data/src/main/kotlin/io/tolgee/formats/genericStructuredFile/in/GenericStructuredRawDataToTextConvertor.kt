@@ -14,12 +14,13 @@ class GenericStructuredRawDataToTextConvertor(
     rawData: Any?,
     projectIcuPlaceholdersEnabled: Boolean,
     convertPlaceholdersToIcu: Boolean,
+    keepOriginalPlaceholders: Boolean,
   ): List<MessageConvertorResult>? {
-    tryConvertToSingle(rawData, projectIcuPlaceholdersEnabled, convertPlaceholdersToIcu)
+    tryConvertToSingle(rawData, projectIcuPlaceholdersEnabled, convertPlaceholdersToIcu, keepOriginalPlaceholders)
       ?.let {
         return it
       }
-    tryConvertToPlural(rawData, projectIcuPlaceholdersEnabled, convertPlaceholdersToIcu)
+    tryConvertToPlural(rawData, projectIcuPlaceholdersEnabled, convertPlaceholdersToIcu, keepOriginalPlaceholders)
       ?.let { return it }
 
     return null
@@ -29,6 +30,7 @@ class GenericStructuredRawDataToTextConvertor(
     rawData: Any?,
     projectIcuPlaceholdersEnabled: Boolean,
     convertPlaceholdersToIcu: Boolean,
+    keepOriginalPlaceholders: Boolean = false,
   ): List<MessageConvertorResult>? {
     if (rawData is Number || rawData is Boolean) {
       return listOf(MessageConvertorResult(rawData.toString(), null))
@@ -39,6 +41,10 @@ class GenericStructuredRawDataToTextConvertor(
     }
 
     val stringValue = getStringValue(rawData) ?: return null
+
+    if (keepOriginalPlaceholders) {
+      return listOf(MessageConvertorResult(stringValue, null))
+    }
 
     return convertStringValue(
       stringValue,
@@ -69,6 +75,7 @@ class GenericStructuredRawDataToTextConvertor(
     rawData: Any?,
     projectIcuPlaceholdersEnabled: Boolean,
     convertPlaceholdersToIcu: Boolean,
+    keepOriginalPlaceholders: Boolean = false,
   ): List<MessageConvertorResult>? {
     val map = rawData as? Map<*, *> ?: return null
 
@@ -91,6 +98,18 @@ class GenericStructuredRawDataToTextConvertor(
           val value = it.value as? String ?: return null
           key to value
         }.toMap()
+
+    if (keepOriginalPlaceholders) {
+      // For plurals when keeping original, still need to convert structure but keep values as-is
+      val converted =
+        format.messageConvertor.convert(
+          rawData = safePluralMap,
+          languageTag = languageTag,
+          convertPlaceholders = false,
+          isProjectIcuEnabled = true,
+        )
+      return listOf(converted)
+    }
 
     val converted =
       format.messageConvertor.convert(

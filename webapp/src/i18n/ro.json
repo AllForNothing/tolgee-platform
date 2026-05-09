@@ -1235,6 +1235,8 @@
   "import_conflicts_filter_show_resolved_label": "Afișează rezolvate",
   "import_convert_placeholders_to_icu_checkbox_label": "Convertiți substituenții în formatul Tolgee Universal ICU",
   "import_convert_placeholders_to_icu_checkbox_label_hint": "Când este activat, convertim substituenții în formatul Tolgee ICU Universal, nativ pentru Tolgee. Puteți exporta substituenții Tolgee ICU Universal în diferite formate. Citiți mai multe făcând clic pe acest iconiță de ajutor.",
+  "import_keep_original_placeholders_checkbox_label": "Keep original placeholders",
+  "import_keep_original_placeholders_checkbox_label_hint": "When enabled, placeholders are stored as-is without any escaping or conversion. This is useful when your file already contains the exact placeholder syntax you want to keep.",
   "import-data-imported-info": "Datele tale au fost importate!",
   "import_delete_language_dialog_message": "Sigur doriți să eliminați limba {languageName} pentru a o importa?",
   "import_delete_language_dialog_title": "Ștergeți limba de importat",

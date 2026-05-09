@@ -1044,6 +1044,8 @@
   "import_conflicts_filter_show_resolved_label": "Pokaż rozwiązane",
   "import_convert_placeholders_to_icu_checkbox_label": "Konwertuj symbole zastępcze na uniwersalne symbole zastępcze ICU Tolgee",
   "import_convert_placeholders_to_icu_checkbox_label_hint": "Po włączeniu konwertujemy twoje symbole zastępcze na natywny format Tolgee ICU Universal. Możesz eksportować symbole zastępcze Tolgee ICU Universal do różnych innych formatów. Przeczytaj więcej, klikając tę ikonę pomocy.",
+  "import_keep_original_placeholders_checkbox_label": "Keep original placeholders",
+  "import_keep_original_placeholders_checkbox_label_hint": "When enabled, placeholders are stored as-is without any escaping or conversion. This is useful when your file already contains the exact placeholder syntax you want to keep.",
   "import-data-imported-info": "Twoje dane zostały zaimportowane!",
   "import_delete_language_dialog_message": "Czy na pewno chcesz usunąć język {languageName}, aby zaimportować?",
   "import_delete_language_dialog_title": "Usuń język, aby zaimportować",

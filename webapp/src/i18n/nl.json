@@ -1238,6 +1238,8 @@
   "import_conflicts_filter_show_resolved_label": "Toon opgelost",
   "import_convert_placeholders_to_icu_checkbox_label": "Converteer placeholders naar Tolgee Universele ICU",
   "import_convert_placeholders_to_icu_checkbox_label_hint": "Wanneer ingeschakeld, converteren we uw placeholders naar Tolgee ICU Universal-formaat dat native is aan Tolgee. U kunt Tolgee ICU Universal placeholders exporteren naar verschillende andere formaten. Lees meer door op dit help-icoon te klikken.",
+  "import_keep_original_placeholders_checkbox_label": "Keep original placeholders",
+  "import_keep_original_placeholders_checkbox_label_hint": "When enabled, placeholders are stored as-is without any escaping or conversion. This is useful when your file already contains the exact placeholder syntax you want to keep.",
   "import-data-imported-info": "Uw gegevens zijn geïmporteerd!",
   "import_delete_language_dialog_message": "Weet u zeker dat u de taal {languageName} wilt verwijderen om te importeren?",
   "import_delete_language_dialog_title": "Taal verwijderen om te importeren",

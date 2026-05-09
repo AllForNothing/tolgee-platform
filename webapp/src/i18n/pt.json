@@ -1231,6 +1231,8 @@
   "import_conflicts_filter_show_resolved_label": "Mostrar resolvido",
   "import_convert_placeholders_to_icu_checkbox_label": "Converter espaços reservados para Tolgee Universal ICU",
   "import_convert_placeholders_to_icu_checkbox_label_hint": "Quando ativado, convertemos seus espaços reservados para o formato universal Tolgee ICU nativo do Tolgee. Você pode exportar espaços reservados universais Tolgee ICU para vários outros formatos. Leia mais clicando neste ícone de ajuda.",
+  "import_keep_original_placeholders_checkbox_label": "Keep original placeholders",
+  "import_keep_original_placeholders_checkbox_label_hint": "When enabled, placeholders are stored as-is without any escaping or conversion. This is useful when your file already contains the exact placeholder syntax you want to keep.",
   "import-data-imported-info": "Seus dados foram importados!",
   "import_delete_language_dialog_message": "Deseja realmente remover o idioma {languageName} para importar?",
   "import_delete_language_dialog_title": "Remover idioma para importar",

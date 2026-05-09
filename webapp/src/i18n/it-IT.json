@@ -1220,6 +1220,8 @@
   "import_conflicts_filter_show_resolved_label": "Mostra risolti",
   "import_convert_placeholders_to_icu_checkbox_label": "Converti i segnaposto in Tolgee Universal ICU",
   "import_convert_placeholders_to_icu_checkbox_label_hint": "Quando abilitato, convertiamo i tuoi segnaposto nel formato Tolgee ICU Universal nativo di Tolgee. Puoi esportare i segnaposto Tolgee ICU Universal in vari altri formati. Leggi di più cliccando su questa icona di aiuto.",
+  "import_keep_original_placeholders_checkbox_label": "Keep original placeholders",
+  "import_keep_original_placeholders_checkbox_label_hint": "When enabled, placeholders are stored as-is without any escaping or conversion. This is useful when your file already contains the exact placeholder syntax you want to keep.",
   "import-data-imported-info": "I tuoi dati sono stati importati!",
   "import_delete_language_dialog_message": "Vuoi davvero rimuovere la lingua {languageName} da importare?",
   "import_delete_language_dialog_title": "Rimuovi lingua da importare",

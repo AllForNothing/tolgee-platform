@@ -1239,6 +1239,8 @@
   "import_conflicts_filter_show_resolved_label": "Zobrazit vyřešené",
   "import_convert_placeholders_to_icu_checkbox_label": "Převést placeholdery na Tolgee Universal ICU",
   "import_convert_placeholders_to_icu_checkbox_label_hint": "Pokud je povoleno, převedeme vaše placeholdery na Tolgee ICU Universal formát, který je pro Tolgee nativní. Později tak budete moci exportovat Tolgee ICU Universal placeholdery do různých dalších formátů. Přečtěte si více kliknutím na ikonu nápovědy.",
+  "import_keep_original_placeholders_checkbox_label": "Keep original placeholders",
+  "import_keep_original_placeholders_checkbox_label_hint": "When enabled, placeholders are stored as-is without any escaping or conversion. This is useful when your file already contains the exact placeholder syntax you want to keep.",
   "import-data-imported-info": "Vaše data byla importována!",
   "import_delete_language_dialog_message": "Skutečně chcete odstranit jazyk {languageName} k importu?",
   "import_delete_language_dialog_title": "Odstranit jazyk k importu",
